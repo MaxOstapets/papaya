@@ -1,0 +1,14 @@
+import "./globals.css";
+import { Menu } from "../components/menu";
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en">
+      <body>
+        <Menu>
+          {children}
+        </Menu>
+      </body>
+    </html>
+  );
+}
