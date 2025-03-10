@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import { IconButton, Typography, List, Toolbar, CssBaseline, Drawer, Box, styled, useTheme, Stack, TextField, InputAdornment, Avatar } from '@mui/material';
+import { IconButton, Typography, List, Toolbar, CssBaseline, Drawer, Box, styled, useTheme, Stack, TextField, InputAdornment, Avatar, ListItem, ListItemText } from '@mui/material';
 import { Item } from './item';
 import SearchIcon from '@mui/icons-material/Search';
 import MicNoneIcon from '@mui/icons-material/MicNone';
@@ -67,6 +67,7 @@ const subscriptions = [
     icon: "/images/sketch.png"
   },
 ]
+const navLinks = ["All", "Gaming", "Thoughts", "Music", "Thrillers", "Mixes", "Avatar", "Film critisisma", "Korean dramas", "Characters", "Eating"]
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{ open?: boolean }>(({ theme }) => ({
   flexGrow: 1,
@@ -128,32 +129,37 @@ export const Menu = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar sx={{ backgroundColor: "#2E335A", justifyContent: "space-between", alignItems: "center", height: "80px" }}>
-          <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" sx={[{ mr: 2 }, open && { display: 'none' }]}><img src='/images/menu.png' alt='menu' /></IconButton>
-          <TextField
-            variant='outlined'
-            placeholder='Explore'
-            sx={{
-              color: "white",
-              width: "445px",
-              height: "55px",
-              border: "1px solid hsla(0, 0%, 100%, 0.5)",
-              borderRadius: "30px", outline: "none",
-              "& .MuiOutlinedInput-notchedOutline": { border: "none" },
-              '& input': { color: "white" },
-              justifyContent: "center"
-            }}
-            slotProps={{
-              input: {
-                startAdornment: <InputAdornment position='start'><SearchIcon sx={{ color: "white" }} /></InputAdornment>,
-                endAdornment: <InputAdornment position='start'><MicNoneIcon sx={{ color: "white" }} /></InputAdornment>
-              }
-            }} />
-          <Stack sx={{ flexDirection: "row", alignItems: "center" }}>
-            <IconButton sx={{ width: "fit-content" }}><img src="/images/video.png" alt="videos" width={30} /></IconButton>
-            <IconButton sx={{ width: "fit-content" }}><img src="/images/bell.png" alt="bell" width={25} /></IconButton>
-            <IconButton sx={{ width: "fit-content" }}><Avatar src='/images/avatar.png' /></IconButton>
+        <Toolbar sx={{ backgroundColor: "hsla(234, 32%, 25%, 1)", height: "auto", flexDirection: "column", padding: "10px 0 0 0" }}>
+          <Stack sx={{ width: "-webkit-fill-available", justifyContent: "space-between", alignItems: "center", display: "flex", flexDirection: "row" }}>
+            <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" sx={[{ mr: 2 }, open && { display: 'none' }]}><img src='/images/menu.png' alt='menu' /></IconButton>
+            <TextField
+              variant='outlined'
+              placeholder='Explore'
+              sx={{
+                color: "white",
+                width: "445px",
+                height: "55px",
+                border: "1px solid hsla(0, 0%, 100%, 0.5)",
+                borderRadius: "30px", outline: "none",
+                "& .MuiOutlinedInput-notchedOutline": { border: "none" },
+                '& input': { color: "white" },
+                justifyContent: "center"
+              }}
+              slotProps={{
+                input: {
+                  startAdornment: <InputAdornment position='start'><SearchIcon sx={{ color: "white" }} /></InputAdornment>,
+                  endAdornment: <InputAdornment position='start'><MicNoneIcon sx={{ color: "white" }} /></InputAdornment>
+                }
+              }} />
+            <Stack sx={{ flexDirection: "row", alignItems: "center" }}>
+              <IconButton sx={{ width: "fit-content" }}><img src="/images/video.png" alt="videos" width={30} /></IconButton>
+              <IconButton sx={{ width: "fit-content" }}><img src="/images/bell.png" alt="bell" width={25} /></IconButton>
+              <IconButton sx={{ width: "fit-content" }}><Avatar src='/images/avatar.png' /></IconButton>
+            </Stack>
           </Stack>
+          <List sx={{ display: "flex", alignItems: "center", color: "hsla(0, 0%, 100%, 0.6)", fontSize: "15px", width: "-webkit-fill-available", padding: "20px 20px" }}>
+            {navLinks.map((el) => <ListItem key={el}><ListItemText>{el}</ListItemText></ListItem>)}
+          </List>
         </Toolbar>
       </AppBar>
       <Drawer
