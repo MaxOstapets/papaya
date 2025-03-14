@@ -129,7 +129,7 @@ export const Menu = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar sx={{ backgroundColor: "hsla(234, 32%, 25%, 1)", height: "auto", flexDirection: "column", padding: "10px 0 0 0" }}>
+        <Toolbar sx={{ backgroundColor: "hsla(242, 30%, 16%, 1)", height: "auto", flexDirection: "column", padding: "10px 0 0 0" }}>
           <Stack sx={{ width: "-webkit-fill-available", justifyContent: "space-between", alignItems: "center", display: "flex", flexDirection: "row" }}>
             <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" sx={[{ mr: 2 }, open && { display: 'none' }]}><img src='/images/menu.png' alt='menu' /></IconButton>
             <TextField
@@ -157,7 +157,7 @@ export const Menu = ({ children }: Readonly<{ children: React.ReactNode }>) => {
               <IconButton sx={{ width: "fit-content" }}><Avatar src='/images/avatar.png' /></IconButton>
             </Stack>
           </Stack>
-          <List sx={{ display: "flex", alignItems: "center", color: "hsla(0, 0%, 100%, 0.6)", fontSize: "15px", width: "-webkit-fill-available", padding: "20px 20px" }}>
+          <List sx={{ display: "flex", alignItems: "center", color: "hsla(0, 0%, 100%, 0.6)", fontSize: "15px", width: "-webkit-fill-available", padding: "10px 20px" }}>
             {navLinks.map((el) => <ListItem key={el}><ListItemText>{el}</ListItemText></ListItem>)}
           </List>
         </Toolbar>
@@ -173,8 +173,8 @@ export const Menu = ({ children }: Readonly<{ children: React.ReactNode }>) => {
         open={open}
       >
         <DrawerHeader>
-          <Stack sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexDirection: "row", gap: "50px", color: "white" }}>
-            <Typography variant="h6" noWrap component="div">Papaya Music</Typography>
+          <Stack sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexDirection: "row", gap: "110px", color: "white" }}>
+            <Typography variant="h6" noWrap component="div">Papaya</Typography>
             <IconButton onClick={handleDrawerClose}>{theme.direction === 'ltr' ? <img src="/images/menu.png" alt="menu" className='w-6 h-6' /> : <img src="/images/exit.png" alt='exit' />}</IconButton>
           </Stack>
         </DrawerHeader>
