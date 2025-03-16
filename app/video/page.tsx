@@ -1,5 +1,5 @@
 "use client"
-import { Card, Typography, Avatar, Box, Stack, Slider, IconButton, Button } from "@mui/material"
+import { Card, Typography, Avatar, Box, Stack, Slider, IconButton, Button, CardContent } from "@mui/material"
 import Image from "next/image"
 import { useState } from "react";
 
@@ -43,7 +43,7 @@ export default function Video() {
     }
 
     return (
-        <Stack sx={{ margin: "75px auto" }}>
+        <Stack sx={{ margin: "75px 0 0 0", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "start" }}>
             <Stack sx={{ width: "fit-content" }}>
                 <Box sx={{ width: "fit-content", position: "relative" }}>
                     <Image src="/images/videoCover1.jpg" alt="video cover" width={1200} height={600} />
@@ -117,6 +117,37 @@ export default function Video() {
                         <Button sx={{ color: "white", gap: "10px", fontSize: "15px" }}><Image src="/images/sort.png" alt="sort" width={20} height={20} /> Sort by</Button>
                     </Box>
                 </Box>
+            </Stack>
+            <Stack>
+                <Card
+                    sx={{
+                        position: "relative",
+                        display: "flex",
+                        justifyContent: "flex-start",
+                        alignItems: "start",
+                        gap: "20px",
+                        width: "600px",
+                        background: "linear-gradient(to right, #704bde, #1e1d35) border-box",
+                        border: "2px solid transparent",
+                        borderRadius: "25px",
+                        //TODO fix border gradient
+                        // mask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+                        // maskComposite: "exclude",
+                        "&::before": {
+                            padding: "10px",
+                            position: "absolute",
+                        }
+                    }}>
+                    <Box sx={{ position: "relative" }}>
+                        <Image src="/images/videoCover1.jpg" width={200} height={200} alt="video cover" />
+                        <Box sx={{ position: "absolute", bottom: "8px", right: "8px", backgroundColor: "rgba(0, 0, 0, 0.7)", color: "white", padding: "2px 6px", borderRadius: "4px", fontSize: "12px", fontWeight: "bold" }}>04:40</Box>
+                    </Box>
+                    <Box sx={{ padding: "10px" }}>
+                        <Typography sx={{ fontSize: "18px", color: "white", fontWeight: "800" }}>Design</Typography>
+                        <Typography sx={{ fontSize: "15px", color: "gray", fontWeight: "700", margin: "10px 0 0 0" }}>CHANNEL NAME</Typography>
+                        <Typography sx={{ fontSize: "15px", color: "gray", fontWeight: "700" }}>14k views - 1 month ago</Typography>
+                    </Box>
+                </Card>
             </Stack>
         </Stack>
     )
