@@ -1,7 +1,7 @@
 "use client"
 import { Card, Typography, Avatar, Box, Stack, Slider, IconButton, Button, CardContent } from "@mui/material"
 import Image from "next/image"
-import { useState } from "react";
+// import { useState } from "react";
 
 interface IButtons {
     src: string,
@@ -33,14 +33,14 @@ const buttons: IButtons[] = [
 ]
 
 export default function Video() {
-    const duration = 200;
-    const [position, setPosition] = useState(32);
-    const [paused, setPaused] = useState(false);
-    function formatDuration(value: number) {
-        const minute = Math.floor(value / 60);
-        const secondLeft = value - minute * 60;
-        return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
-    }
+    // const duration = 200;
+    // const [position, setPosition] = useState(32);
+    // const [paused, setPaused] = useState(false);
+    // function formatDuration(value: number) {
+    //     const minute = Math.floor(value / 60);
+    //     const secondLeft = value - minute * 60;
+    //     return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
+    // }
 
     return (
         <Stack sx={{ margin: "75px 0 0 0", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "start" }}>
@@ -57,7 +57,7 @@ export default function Video() {
                             }}
                             size="medium"
                             valueLabelDisplay="auto"
-                            value={position}
+                            value={30}
                             min={0}
                             max={100}
                         />
