@@ -1,5 +1,5 @@
 "use client"
-import { Card, Typography, Avatar, Box, Stack, Slider, IconButton, Button, CardContent } from "@mui/material"
+import { Card, Typography, Avatar, Box, Stack, Slider, IconButton, Button } from "@mui/material"
 import Image from "next/image"
 // import { useState } from "react";
 
