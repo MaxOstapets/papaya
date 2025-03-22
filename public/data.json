@@ -1,0 +1,80 @@
+[
+    {
+        "cover": "/images/videoCover1.jpg",
+        "title": "Design and Prototype an App with Play - Full 3-hour Course",
+        "time": "4:30",
+        "author": "DESIGNCODE",
+        "views": 1200000,
+        "date": 11,
+        "avatar": "/images/authorAvatar1.png",
+        "comments": 11000,
+        "likes": "1.2m",
+        "dislikes": "3k",
+        "id": "124542"
+    },
+    {
+        "cover": "/images/videoCover2.jpg",
+        "title": "Create 3D Site with Spline and React - Full Course",
+        "time": "12:30",
+        "author": "DESIGNCODE",
+        "views": 1202000,
+        "date": 1,
+        "avatar": "/images/authorAvatar2.png",
+        "comments": 1000,
+        "likes": "3m",
+        "dislikes": "1k",
+        "id": "094718"
+    },
+    {
+        "cover": "/images/videoCover3.jpg",
+        "title": "How to Use AI Art Generator on Midjourney",
+        "time": "16:20",
+        "author": "DESIGNCODE",
+        "views": 200000,
+        "date": 5,
+        "avatar": "/images/authorAvatar3.png",
+        "comments": 400,
+        "likes": "10k",
+        "dislikes": "500",
+        "id": "880285"
+    },
+    {
+        "cover": "/images/videoCover4.jpg",
+        "title": "Desktop App UI Design in Figma - Full Course",
+        "time": "40:36",
+        "author": "DESIGNCODE",
+        "views": 13000,
+        "date": 7,
+        "avatar": "/images/authorAvatar4.png",
+        "comments": 11000,
+        "likes": "5m",
+        "dislikes": "100k",
+        "id": "104598"
+    },
+    {
+        "cover": "/images/videoCover5.jpg",
+        "title": "Design and Prototype an App with Play - Full 2-hour Course",
+        "time": "5:50",
+        "author": "DESIGNCODE",
+        "views": 500,
+        "date": 2,
+        "avatar": "/images/authorAvatar5.png",
+        "comments": 1500,
+        "likes": "15k",
+        "dislikes": "30",
+        "id": "758024"
+    },
+    {
+        "cover": "/images/videoCover6.jpg",
+        "title": "Build a 3D Site Without Code with Framer - Crash Course",
+        "time": "54:30",
+        "author": "DESIGNCODE",
+        "views": 1200000,
+        "date": 11,
+        "avatar": "/images/authorAvatar6.png",
+        "comments": 300,
+        "likes": "56k",
+        "dislikes": "90",
+        "id": "940356"
+    }
+]

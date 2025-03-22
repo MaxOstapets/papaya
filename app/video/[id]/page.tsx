@@ -1,13 +1,28 @@
 "use client"
 import { Card, Typography, Avatar, Box, Stack, Slider, IconButton, Button } from "@mui/material"
 import Image from "next/image"
-// import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 
 interface IButtons {
     src: string,
     alt: string,
     borderRadius?: string,
     label?: number | string
+}
+
+interface IVideo {
+    cover: string,
+    title: string,
+    time: string,
+    author: string,
+    views: number,
+    date: number,
+    avatar: string,
+    comments: number,
+    likes: string,
+    dislikes: string,
+    id: string
 }
 
 const mainIcons: IButtons[] = [
@@ -32,7 +47,8 @@ const buttons: IButtons[] = [
     { src: "/images/more.png", alt: "more", borderRadius: "0 15px 15px 0" },
 ]
 
-export default function Video() {
+const Video = () => {
+    //TODO slider
     // const duration = 200;
     // const [position, setPosition] = useState(32);
     // const [paused, setPaused] = useState(false);
@@ -41,12 +57,28 @@ export default function Video() {
     //     const secondLeft = value - minute * 60;
     //     return `${minute}:${secondLeft < 10 ? `0${secondLeft}` : secondLeft}`;
     // }
+    const [video, setVideo] = useState<IVideo>()
+    const { id } = useParams()
+    console.log("ID: ", id)
+
+    useEffect(() => {
+        try {
+            fetch("/data.json")
+                .then((res) => res.json())
+                .then((data) => {
+                    const item = data.find((el: any) => el.id === id)
+                    setVideo(item)
+                })
+        } catch (error) { console.log("ERROR: ", error) }
+    }, [])
+
+    if (!video) return <Typography sx={{ color: "white" }}>Завантаження...</Typography>;
 
     return (
         <Stack sx={{ margin: "75px 0 0 0", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "start" }}>
             <Stack sx={{ width: "fit-content" }}>
                 <Box sx={{ width: "fit-content", position: "relative" }}>
-                    <Image src="/images/videoCover1.jpg" alt="video cover" width={1200} height={600} />
+                    <Image src={`${video.cover}`} alt="video cover" width={1200} height={600} />
                     <Box sx={{ position: "absolute", top: "87%", width: "1200px" }}>
                         <Slider
                             aria-label="time-indicator"
@@ -108,12 +140,12 @@ export default function Video() {
                         </Box>
                     </Box>
                     <Box sx={{ padding: "15px 0 20px 0" }}>
-                        <Typography sx={{ color: "gray", fontWeight: "600" }}>14k views - 1 month ago</Typography>
+                        <Typography sx={{ color: "gray", fontWeight: "600" }}>{video.views}k views - {video.date} month ago</Typography>
                         <Typography sx={{ color: "gray", fontWeight: "600", margin: "3px 0 0 0" }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores voluptatum, tempora dolores dignissimos recusandae nihil quaerat numquam illo eligendi? Rem voluptate ipsum ab deserunt libero ducimus recusandae ea suscipit quaerat.</Typography>
                         <Typography sx={{ color: "white", fontWeight: "600" }}>Show more</Typography>
                     </Box>
                     <Box sx={{ display: "flex", alignItems: "center", gap: "15px" }}>
-                        <Typography sx={{ color: "white", fontSize: "20px", fontWeight: "800" }}>869 coments</Typography>
+                        <Typography sx={{ color: "white", fontSize: "20px", fontWeight: "800" }}>{video.comments} coments</Typography>
                         <Button sx={{ color: "white", gap: "10px", fontSize: "15px" }}><Image src="/images/sort.png" alt="sort" width={20} height={20} /> Sort by</Button>
                     </Box>
                 </Box>
@@ -139,16 +171,18 @@ export default function Video() {
                         }
                     }}>
                     <Box sx={{ position: "relative" }}>
-                        <Image src="/images/videoCover1.jpg" width={200} height={200} alt="video cover" />
-                        <Box sx={{ position: "absolute", bottom: "8px", right: "8px", backgroundColor: "rgba(0, 0, 0, 0.7)", color: "white", padding: "2px 6px", borderRadius: "4px", fontSize: "12px", fontWeight: "bold" }}>04:40</Box>
+                        <Image src={`${video.cover}`} width={200} height={200} alt="video cover" />
+                        <Box sx={{ position: "absolute", bottom: "8px", right: "8px", backgroundColor: "rgba(0, 0, 0, 0.7)", color: "white", padding: "2px 6px", borderRadius: "4px", fontSize: "12px", fontWeight: "bold" }}>{video?.time}</Box>
                     </Box>
                     <Box sx={{ padding: "10px" }}>
-                        <Typography sx={{ fontSize: "18px", color: "white", fontWeight: "800" }}>Design</Typography>
-                        <Typography sx={{ fontSize: "15px", color: "gray", fontWeight: "700", margin: "10px 0 0 0" }}>CHANNEL NAME</Typography>
-                        <Typography sx={{ fontSize: "15px", color: "gray", fontWeight: "700" }}>14k views - 1 month ago</Typography>
+                        <Typography sx={{ fontSize: "18px", color: "white", fontWeight: "800" }}>{video.title}</Typography>
+                        <Typography sx={{ fontSize: "15px", color: "gray", fontWeight: "700", margin: "10px 0 0 0" }}>{video.author}</Typography>
+                        <Typography sx={{ fontSize: "15px", color: "gray", fontWeight: "700" }}>{video.views}k views - {video.date} month ago</Typography>
                     </Box>
                 </Card>
             </Stack>
         </Stack>
     )
 }
+
+export default Video
