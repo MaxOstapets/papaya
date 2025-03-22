@@ -66,7 +66,7 @@ const Video = () => {
             fetch("/data.json")
                 .then((res) => res.json())
                 .then((data) => {
-                    const item = data.find((el: any) => el.id === id)
+                    const item = data.find((el: { id: string }) => el.id === id)
                     setVideo(item)
                 })
         } catch (error) { console.log("ERROR: ", error) }
