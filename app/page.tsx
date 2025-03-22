@@ -22,7 +22,7 @@ export default function Home() {
       fetch("/data.json")
         .then((res) => res.json())
         .then((data) => {
-          const items = data.map((el: any) => el)
+          const items = data.map((el: []) => el)
           setVideos(items)
         })
     } catch (error) {
